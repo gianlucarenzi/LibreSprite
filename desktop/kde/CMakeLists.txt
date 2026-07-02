@@ -3,7 +3,18 @@
 #
 # Licensed under the the MIT License (https://opensource.org/licenses/MIT).
 
-cmake_minimum_required(VERSION 4.1)
+# This module targets CMake 4.1. Debian 12 (bookworm) and older don't package
+# it, so fall back to the previous minimum version there if 4.1 isn't found.
+set(_LIBRESPRITE_CMAKE_MIN 4.1)
+if(CMAKE_VERSION VERSION_LESS 4.1 AND EXISTS "/etc/os-release")
+  file(STRINGS "/etc/os-release" _LIBRESPRITE_OS_RELEASE)
+  string(REGEX MATCH "ID=\"?debian\"?" _LIBRESPRITE_IS_DEBIAN "${_LIBRESPRITE_OS_RELEASE}")
+  string(REGEX MATCH "VERSION_ID=\"?([0-9]+)\"?" _LIBRESPRITE_UNUSED "${_LIBRESPRITE_OS_RELEASE}")
+  if(_LIBRESPRITE_IS_DEBIAN AND CMAKE_MATCH_1 AND CMAKE_MATCH_1 LESS_EQUAL 12)
+    set(_LIBRESPRITE_CMAKE_MIN 3.18)
+  endif()
+endif()
+cmake_minimum_required(VERSION ${_LIBRESPRITE_CMAKE_MIN})
 set(QT_MIN_VERSION "5.2.0")
 project(librespritethumbnail)
 find_package(ECM REQUIRED NO_MODULE)
