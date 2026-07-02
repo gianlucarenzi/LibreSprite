@@ -24,3 +24,6 @@ build
 /.cache/
 *~
 /android/
+
+# Personal X16/VERA reference docs, not part of the project's own docs
+/docs/X16 Reference*.md

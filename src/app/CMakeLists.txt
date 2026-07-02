@@ -89,6 +89,7 @@ set(file_formats
   file/qoi_format.cpp
   file/she_format.cpp
   file/tga_format.cpp
+  file/vera_format.cpp
   file/webp_format.cpp
 )
 
