@@ -14,7 +14,7 @@ BUILD_DEPS=(
   zlib1g-dev libarchive-dev libtinyxml2-dev libpng-dev libfreetype6-dev
   libgif-dev libjpeg-dev libcurl4-openssl-dev libwebp-dev
   libx11-dev libxext-dev libxcursor-dev libxpm-dev libxxf86vm-dev
-  libice-dev libxcb1-dev
+  libice-dev libxcb1-dev libsdl2-dev libsdl2-image-dev libpixman-1-dev
 )
 
 echo "==> Checking build dependencies"
