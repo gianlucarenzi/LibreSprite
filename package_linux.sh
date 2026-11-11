@@ -35,7 +35,7 @@ ln ./sharun ./AppRun
 # copies it over afterwards using the below command
 mv "$out"/data "$out"/LibreSprite/bin
 
-wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-$ARCH.AppImage" -O appimagetool
+wget "https://github.com/gianlucarenzi/appimagetool/releases/download/continuous/appimagetool-$ARCH.AppImage" -O appimagetool
 chmod +x ./appimagetool
 ./appimagetool --comp zstd \
 	--mksquashfs-opt -Xcompression-level --mksquashfs-opt 22 \
